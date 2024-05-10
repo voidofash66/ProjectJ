@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hey Jenny</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        img {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+        h1, p {
+            color: white;
+        }
+        h1 {
+            font-size: 2em;
+        }
+        p {
+            font-size: 1.5em;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            margin: 10px;
+        }
+        .button.red {
+            background-color: red;
+        }
+        .button.green {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <img src="https://31.media.tumblr.com/9260f07749ce17553c32aa4aecbe92dc/tumblr_msza6eMYUa1r91cn2o1_500.gif" alt="Jenny">
+    <div class="content">
+        <h1>Hey Jenny</h1>
+        <p style="font-size: 1.8em;">How you doing today?</p>
+        <div>
+            <a href="javascript:void(0);" class="button red" onclick="changeTextAndGif()">Not Good</a>
+            <a href="#" class="button green" onclick="showAdditionalContent()">I am Good</a>
+        </div>
+    </div>
+
+    <h1 style="display:none;">Ohhh :( Im sorry</h1>
+    <p style="display:none;">Hope this Helps</p>
+    <img style="display:none;" src="https://i.pinimg.com/originals/d5/35/66/d53566b9c004082524cec6264b33bc00.gif" alt="New GIF">
+    <p id="additionalText" style="display:none;"></p>
+    <a href="second_page.html" id="whyButton" class="button green" style="display:none;">Why?</a>
+
+    <script>
+        function changeTextAndGif() {
+            document.querySelector("h1").textContent = "Ohhh :( Im sorry";
+            document.querySelector("h1").style.color = "white";
+            document.querySelector("p").textContent = "Hope this Helps";
+            document.querySelector("p").style.color = "white";
+            document.querySelector("img").src = "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdDJjZTFqcWc4bzB5MGlvNGFxc2RiNnd6bjhqdm15dDlzbnNhNDljdyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/W1hd3uXRIbddu/200.webp";
+        }
+
+        function showAdditionalContent() {
+            document.querySelector("h1").textContent = "Do you know? sometimes my hand feels heavier";
+            document.querySelector("h1").style.color = "black";
+            document.querySelector("p").style.display = "none";
+            document.querySelector("img").src = "https://i.pinimg.com/originals/79/10/63/7910637cdbcaf527770ae38e8d7d1ad5.gif";
+            document.querySelector(".button.red").style.display = "none";
+            document.querySelector(".button.green").style.display = "none";
+            document.querySelector("#additionalText").style.display = "block";
+            document.querySelector("#whyButton").style.display = "block";
+        }
+
+        function showWhy() {
+            window.location.href = "second_page.html"; // Redirect to another HTML file
+        }
+    </script>
+</body>
+</html>
